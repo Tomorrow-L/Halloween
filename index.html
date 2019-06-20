@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--写样式-->
+		<style>
+			body,
+			html,
+			div {
+				width: 100%;
+				height: 100%;
+			}
+
+			div {
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+
+			#page1 {
+				background-image: url(img/halloween1.jpg);
+
+			}
+
+			#page2 {
+				background-image: url(img/halloween2.jpg);
+
+				display: none;
+			}
+
+			#page3 {
+				background-image: url(img/halloweenMain.jpg);
+				display: none;
+
+
+			}
+
+			#page4 {
+				background-image: url(img/charm1.jpg);
+				display: none;
+			}
+
+
+
+			#title {
+				position: fixed;
+				left: 335px;
+				top: 115px;
+				animation: titlemove 2s infinite;
+			}
+
+			@keyframes titlemove {
+				from {
+					opacity: 0;
+				}
+
+				to {
+					opacity: 1;
+				}
+			}
+
+			#box {
+				position: fixed;
+				left: 305px;
+				bottom: 400px;
+				/**动画**/
+				animation: baohemove 1s infinite;
+			}
+
+			/****关键帧****/
+			@keyframes baohemove {
+				0% {
+					left: 305px;
+				}
+
+				50% {
+					left: 350px;
+				}
+
+				100% {
+					left: 305px;
+				}
+			}
+
+			#pumpkin {
+				position: fixed;
+				left: 275px;
+				bottom: 1085px;
+
+			}
+
+			#startGame {
+				position: fixed;
+				left: 380px;
+				bottom: 380px;
+			}
+
+
+			#charm01 {
+				position: fixed;
+				left: 50px;
+				top: 100px;
+				animation: charm01move 3s infinite;
+			}
+
+			@keyframes charm01move {
+				0% {
+					left: 50px;
+					top: 100px;
+				}
+
+				50% {
+					left: 50px;
+					top: 180px;
+				}
+
+				75% {
+					left: 100px;
+					top: 150px;
+				}
+
+				100% {
+					left: 50px;
+					top: 100px;
+				}
+			}
+
+			#charm02 {
+				position: fixed;
+				left: 250px;
+				top: 400px;
+				animation: charm02move 5s infinite;
+			}
+
+			@keyframes charm02move {
+				0% {
+					left: 250px;
+					top: 400px;
+				}
+
+				50% {
+					left: 350px;
+					top: 550px;
+				}
+
+				75% {
+					left: 450px;
+					top: 550px;
+				}
+
+				100% {
+					left: 250px;
+					top: 400px;
+				}
+			}
+
+			#charm03 {
+				position: fixed;
+				left: 50px;
+				top: 650px;
+				animation: charm03move 5s infinite;
+			}
+
+			@keyframes charm03move {
+				0% {
+					left: 50px;
+					top: 650px;
+				}
+
+				50% {
+					left: 200px;
+					top: 350px;
+				}
+
+				100% {
+					left: 50px;
+					top: 650px;
+				}
+
+			}
+
+			#charm04 {
+				position: fixed;
+				left: 500px;
+				top: 50px;
+				animation: charm04move 5s infinite;
+			}
+
+			@keyframes charm04move {
+				0% {
+					top: 50px;
+				}
+
+				50% {
+					top: 150px;
+				}
+
+				100% {
+
+					top: 50xp;
+				}
+			}
+
+			#charm05 {
+				position: fixed;
+				left: 400px;
+				top: 900px;
+				animation: charm05move 5s infinite;
+			}
+
+			@keyframes charm05move {
+				0% {
+					top: 900px;
+				}
+
+				50% {
+					top: 850px;
+				}
+
+				100% {
+
+					top: 900xp;
+				}
+			}
+
+			#charm06 {
+				position: fixed;
+				left: 300px;
+				top: 800px;
+				animation: charm06move 4s infinite;
+			}
+
+			@keyframes charm06move {
+				0% {
+					left: 300px;
+					top: 800px;
+				}
+
+				50% {
+					left: 200px;
+					top: 950px;
+				}
+
+				100% {
+					left: 300px;
+					top: 800px;
+				}
+			}
+
+			#charm07 {
+				position: fixed;
+				right: 50px;
+				bottom: 300px;
+				animation: charm07move 2s infinite;
+			}
+
+			@keyframes charm07move {
+				0% {
+					width: 130px;
+					height: 130px;
+				}
+
+				50% {
+					width: 20px;
+					height: 20px;
+				}
+
+				100% {
+					width: 130px;
+					height: 130px;
+				}
+			}
+		</style>
+		<script>
+			function suijitu() {
+				//显示第四张图片
+				gotoxiayiye(4);
+				//1.产生一个随机数
+				//[0，1)     左闭右开    [1,8)
+				var suijishu = Math.floor(Math.random() * 7 + 1);
+				var pic = "url(img/charm" + suijishu + ".jpg)";
+				//2.第四张图片的背景为随机产生的图片
+				var p4 = document.getElementById("page4");
+
+				p4.style.backgroundImage = pic;
+			}
+
+
+			function gotoxiayiye(x) {
+				//所有页都设置为不显示
+				var page1 = document.getElementById("page1");
+				var page2 = document.getElementById("page2");
+				var page3 = document.getElementById("page3");
+				var page4 = document.getElementById("page4");
+
+				page1.style.display = "none";
+				page2.style.display = "none";
+				page3.style.display = "none";
+				page4.style.display = "none";
+
+				//page页显示出来
+				var p = "page" + x;
+				var showpage = document.getElementById(p);
+				showpage.style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="page1">
+
+			<!--在div中显示、标题和宝盒-->
+			<img id="title" src="img/title.png">
+			<img id="box" src="img/box.png" onclick="gotoxiayiye(2)" />
+		</div>
+		<div id="page2">
+			<img id="pumpkin" src="img/pumpkin.png">
+			<img id="startGame" src="img/startGame.jpg" onclick="gotoxiayiye(3)" />
+
+		</div>
+		<div id="page3">
+			<img id="charm01" src="img/1.png" onclick="suijitu()" />
+			<img id="charm02" src="img/2.png" onclick="suijitu()" />
+			<img id="charm03" src="img/3.png" onclick="suijitu()" />
+			<img id="charm04" src="img/4.png" onclick="suijitu()" />
+			<img id="charm05" src="img/5.png" onclick="suijitu()" />
+			<img id="charm06" src="img/6.png" onclick="suijitu()" />
+			<img id="charm07" src="img/7.png" onclick="suijitu()" />
+
+
+		</div>
+		<div id="page4">
+		</div>
+
+
+
+	</body>
+</html>
